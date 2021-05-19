@@ -21,4 +21,77 @@ body {
     inset 0px -15px 15px 10px rgba(255,255,255,0.05), 
     0px 15px 15px 10px #000000, 
     inset 0px 15px 15px 10px #000000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock::before{
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    z-index: 13;
+    position: absolute;
+}
+
+.hour, .hr {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+}
+
+.hr::before{
+    content: '';
+    width: 8px;
+    height: 80px;
+    background-color: red;
+    position: absolute;
+    border-radius: 6px 6px 0 0;
+    z-index: 10;
+}
+
+.hr, .mn, .sc {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* MINUTE ARM */
+
+.minute, .mn {
+    width: 190px;
+    height: 190px;
+    position: absolute;
+}
+
+.mn::before{
+    content: '';
+    width: 4px;
+    height: 90px;
+    background-color: red;
+    position: absolute;
+    border-radius: 6px 6px 0 0;
+    z-index: 11;
+}
+
+
+/* SECONDS ARM */
+
+.second, .sc {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+}
+
+.sc::before{
+    content: '';
+    width: 2px;
+    height: 120px;
+    background-color: red;
+    position: absolute;
+    border-radius: 6px 6px 0 0;
+    z-index: 12;
 }
