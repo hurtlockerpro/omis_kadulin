@@ -1,12 +1,25 @@
 
 // ES6 - 2016
 
-function getX(){}
+function getX(){ // class
+
+    function getY(){
+
+
+        return new Object()
+    }
+
+}
+
+let x = getX()
+x.getY()
 
 class Calc {
 
     #additionalKeyboardButtons = [13, 8, 37, 39, 111, 106, 109, 107]
-    mathActionsNotToClone = [111, 106, 109, 107]
+    mathActionsNotToClone = ['*', '/', '-', '+']
+
+    #lastSymbol = ''
 
     constructor(calcId){
         console.log('constructor')
@@ -62,6 +75,9 @@ class Calc {
                 // '1' += 1 -> 11 (string)
 
                 this.input.focus()
+
+                // save last symbol
+                if (this.mathActionsNotToClone.includes(btnTitle)) this.#lastSymbol = btnTitle
             });
             
         }
@@ -82,6 +98,11 @@ class Calc {
             } else if (event.keyCode == 13){ // key == 'Enter'
                 this.calculateResult()
             }
+            // ! important must be before #lastSymbol init
+            this.isLastMathSymbolDuplicated(event.key)
+
+            // save last symbol
+            if (this.mathActionsNotToClone.includes(event.key)) this.#lastSymbol = event.key
         })
     }
 
@@ -98,6 +119,31 @@ class Calc {
         {
             this.input.value = ''
         }
+    }
+
+    // boolean
+    isLastMathSymbolDuplicated(currentSymbol){
+
+        let result = false
+
+        // if (!this.mathActionsNotToClone.includes(currentSymbol)) return result
+
+        if (this.#lastSymbol == currentSymbol && this.mathActionsNotToClone.includes(currentSymbol)){
+            // ++
+            this.input.value = this.input.value.toString().substring(0, this.input.value.length - 1)
+            // return 
+            result = true
+        } 
+        else if (
+            isNaN(this.#lastSymbol) && 
+            this.#lastSymbol != currentSymbol && 
+            this.mathActionsNotToClone.includes(currentSymbol))
+        {
+            this.input.value = this.input.value.toString().substring(0, this.input.value.length - 1) + currentSymbol
+
+            result = false
+        }
+        return result
     }
 }
 
