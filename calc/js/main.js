@@ -6,6 +6,7 @@ function getX(){}
 class Calc {
 
     #additionalKeyboardButtons = [13, 8, 37, 39, 111, 106, 109, 107]
+    mathActionsNotToClone = [111, 106, 109, 107]
 
     constructor(calcId){
         console.log('constructor')
@@ -59,6 +60,8 @@ class Calc {
                 }
                 // 1 += 1 -> 2
                 // '1' += 1 -> 11 (string)
+
+                this.input.focus()
             });
             
         }
@@ -71,10 +74,13 @@ class Calc {
                 (event.keyCode < 48 || 
                 (event.keyCode > 57 && event.keyCode < 96) ||
                 event.keyCode > 105) &&
-                this.#additionalKeyboardButtons.includes(event.keyCode) != true
+                this.#additionalKeyboardButtons.includes(event.keyCode) == false
             )
             {
                 event.preventDefault()
+                
+            } else if (event.keyCode == 13){ // key == 'Enter'
+                this.calculateResult()
             }
         })
     }
@@ -96,6 +102,7 @@ class Calc {
 }
 
 let calc = new Calc('myCalc')
+calc.mathActionsNotToClone.push([222]) 
 //calc.abc = 'DCE'
 // calc.emptyInput()
 
