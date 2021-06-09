@@ -11,11 +11,11 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/typescript.ts",
+            "program": "${workspaceFolder}/nodejs/typescript.ts",
             "outFiles": [
-                "${workspaceFolder}/build/*.js"
+                "${workspaceFolder}/nodejs/build/**/*.js"
             ],
-            "preLaunchTask": "tsc: build - tsconfig.json",
+            "preLaunchTask": "tsc111",
         }
     ]
 }
