@@ -1,7 +1,11 @@
-const express = require('express')
+import express, { Response, Request } from "express"
+
+//const express = require('express')
 const app = express()
+
+
  
-app.get('/', function (req, res) {
+app.get('/', function (req:Request, res:Response) {
   res.send('Hello World')
 })
  
