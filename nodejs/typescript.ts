@@ -6,7 +6,7 @@ let x3:undefined = undefined
 
 let x4 = 'test'
 
-let x5:number[] = [10, 10, 10 , 01]
+let x5:number[] = [10, 10, 10]
 
 console.log(x5)
 
