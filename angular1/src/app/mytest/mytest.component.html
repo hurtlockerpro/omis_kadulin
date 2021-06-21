@@ -1,0 +1,14 @@
+<p>mytest works!</p>
+Hello {{ firstname }} !!!
+
+<ul>
+    <li *ngFor="let item of cars;let i = index;">{{ i }} - {{ item }}</li>
+</ul>
+
+<div *ngIf="isShown == true; then myTemplateElseIf else myTemplateElse">this text is shown !!!</div>
+<ng-template #myTemplateElse>this is template 1 (else)</ng-template>
+<ng-template #myTemplateElseIf>this is template 2 (else if)</ng-template>
+<div>-----</div>
+<div *ngIf="isShown == true; else myTemplateElse">this text is shown !!!</div>
+<ng-template #myTemplateElse>this is template 1 (else)</ng-template>
+
