@@ -14,11 +14,26 @@ export class MytestComponent implements OnInit {
   firstname:string = 'Vladimir'
   cars:string[] = ['audi', 'bmw', 'citroen', 'hfhfhf']
   isShown:boolean = true;
+  resultNumber:number = 0;
+  myFirstname:string = 'Vladimir 111'
+  isRed:boolean = false
 
   constructor() { }
 
   ngOnInit(): void {
     
+  }
+
+  increment():void{
+    this.resultNumber++
+  }
+  decrement():void{
+    this.resultNumber--
+  }
+
+  changeColor():void{
+    this.isRed = !this.isRed
+    console.log(this.isRed)
   }
 
 }

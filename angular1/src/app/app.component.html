@@ -1,6 +1,8 @@
-<h1 class="myClass">Hello Angular</h1>
+<h3 class="myClass">My Todos</h3>
 
-<mytest></mytest>
-
+<div class="container">
+    <app-todo-add></app-todo-add>
+    <app-todo-row *ngFor="let thisTodo of todos" [todoTitle]="thisTodo.title" [todo]="thisTodo"></app-todo-row>
+</div>
 
 <router-outlet></router-outlet>

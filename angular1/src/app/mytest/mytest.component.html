@@ -12,3 +12,20 @@ Hello {{ firstname }} !!!
 <div *ngIf="isShown == true; else myTemplateElse">this text is shown !!!</div>
 <ng-template #myTemplateElse>this is template 1 (else)</ng-template>
 
+<hr>
+<div>result is: {{ resultNumber }}</div>
+<button type="button" (click)="decrement()">-</button>
+<button type="button" (click)="increment()">+</button>
+
+<form>
+    <input type="text" name="firstname" [value]="myFirstname" placeholder="enter your name">
+</form>
+
+<div class="box" [class.red]="isRed"></div>
+<input type="checkbox" (change)="changeColor()">is red
+<input type="checkbox" [(ngModel)]="isRed">is red 2
+
+<div class="box" [style.backgroundColor]="isRed ? 'red' : 'green'"></div>
+
+
+<input type="text" [(ngModel)]="myFirstname">

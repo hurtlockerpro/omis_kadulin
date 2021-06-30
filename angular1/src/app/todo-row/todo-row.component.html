@@ -1,0 +1,16 @@
+<div [ngClass]="setClass()">
+    <!-- isCompletes: {{ todo.isCompleted }} -->
+    <div class="form-group form-check">
+        <input 
+            type="checkbox" 
+            class="form-check-input" 
+            (change)="checkboxOnChange(todo)" 
+            [checked]="todo.isCompleted"
+        >
+        <span class="form-check-label" for="exampleCheck1">id: {{ todo.id }} {{ todo.title }}</span>
+    </div>
+
+    <button type="button" class="btn btn-danger">delete</button>
+    <button type="button" class="btn btn-primary">edit</button>
+    <hr>
+</div>
