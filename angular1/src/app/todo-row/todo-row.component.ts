@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, OnDestroy, DoCheck, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, OnDestroy, DoCheck, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { ITodos } from '../itodos';
 
 @Component({
@@ -6,10 +6,14 @@ import { ITodos } from '../itodos';
   templateUrl: './todo-row.component.html',
   styleUrls: ['./todo-row.component.scss']
 })
-export class TodoRowComponent implements OnInit, OnChanges, OnDestroy, DoCheck, AfterViewInit {
+export class TodoRowComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
 
   @Input() todoTitle:string = ''
   @Input() todo:ITodos = {id:0, title:'', isCompleted:false}
+
+  @Output() deleteTodo: EventEmitter<ITodos> = new EventEmitter()
+  @Output() editTodo: EventEmitter<ITodos> = new EventEmitter()
+
   
   x = 20
 
@@ -22,9 +26,11 @@ export class TodoRowComponent implements OnInit, OnChanges, OnDestroy, DoCheck, 
   ngOnDestroy():void {
     console.log('ngOnDestroy')
   }
+  /*
   ngDoCheck():void {
-    console.log('DoCheck')
-  }
+    //console.log('DoCheck')
+    console.log(this)
+  }*/
   ngOnChanges():void {
     console.log('OnChanges' + this.x)
   }
@@ -43,6 +49,14 @@ export class TodoRowComponent implements OnInit, OnChanges, OnDestroy, DoCheck, 
       'textCompleted': this.todo.isCompleted,
       'fontBold': true
     }
+  }
+
+  onDelete(todo:ITodos):void{
+    this.deleteTodo.emit(todo)
+  }
+
+  onEdit(todo:ITodos):void{
+    this.editTodo.emit(todo)
   }
 
 }

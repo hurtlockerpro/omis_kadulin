@@ -1,8 +1,11 @@
 <h3 class="myClass">My Todos</h3>
 
 <div class="container">
-    <app-todo-add></app-todo-add>
-    <app-todo-row *ngFor="let thisTodo of todos" [todoTitle]="thisTodo.title" [todo]="thisTodo"></app-todo-row>
+
+    <app-todo-add (frmTodo)="addTodo($event)" [todo]="editTodoInfo"></app-todo-add>
+
+
+    <app-todo-row *ngFor="let thisTodo of todos" [todoTitle]="thisTodo.title" [todo]="thisTodo" (deleteTodo)="deleteTodo($event)" (editTodo)="editTodo($event)"></app-todo-row>
 </div>
 
 <router-outlet></router-outlet>

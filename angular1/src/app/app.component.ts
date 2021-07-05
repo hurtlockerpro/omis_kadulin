@@ -8,6 +8,7 @@ import { ITodos } from './itodos';
 })
 export class AppComponent {
   title = 'angular1';
+  editTodoInfo:ITodos = {id:0,title:'',isCompleted:false};
 
   todos:ITodos[] = [
     {
@@ -26,4 +27,30 @@ export class AppComponent {
       isCompleted: true
     }
   ]
+
+  addTodo(todo:ITodos):void{
+    if (todo.id > 0)
+    {
+      // TODO edit todo
+      console.log(todo)
+      this.todos.forEach(item => {
+        if (item.id == todo.id)
+        {
+          item.title = todo.title
+        }
+      })
+
+    } else {
+      todo.id = this.todos.length + 1
+      this.todos.push(todo)
+    }
+  }
+
+  deleteTodo(todo:ITodos):void{
+    this.todos = this.todos.filter(item => item.id != todo.id)
+  }
+
+  editTodo(todo:ITodos):void{
+    this.editTodoInfo = todo
+  }
 }

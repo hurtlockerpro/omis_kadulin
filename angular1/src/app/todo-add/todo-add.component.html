@@ -1,7 +1,7 @@
-<form class="form-inline">
+<form class="form-inline" (ngSubmit)="onSubmit(todo)">
     <div class="form-group">
       <label>ToDo:</label>
-      <input type="text" class="form-control">
+      <input type="text" class="form-control" name="todoTitle" [(ngModel)]="todoTitle" [value]="todo.title">
     </div>
-    <button type="submit" class="btn btn-primary">Add ToDo</button>
+    <input type="submit" class="btn btn-primary" value="Add ToDo">
 </form>
