@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITodos } from './itodos';
 import { TodosService } from './todos.service';
+import { TodosapiService } from './todosapi.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,14 @@ import { TodosService } from './todos.service';
 export class AppComponent implements OnInit {
   title = 'angular1';
   editTodoInfo:ITodos = {id:0,title:'',isCompleted:false};
+  todos:ITodos[] = []
 
-  constructor(private myTodoService:TodosService){}
+  constructor(private myTodoService:TodosService, private myTodosapiService:TodosapiService){}
 
   ngOnInit(){
-
+    this.myTodosapiService.getAllTodos().subscribe(todos => {
+      this.todos = todos
+    })
   }
 
   addTodo(todo:ITodos):void{

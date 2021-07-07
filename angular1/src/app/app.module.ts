@@ -7,18 +7,22 @@ import { MytestComponent } from './mytest/mytest.component';
 import { FormsModule } from '@angular/forms';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoRowComponent } from './todo-row/todo-row.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoDetailComponent } from './todo-detail/todo-detail.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     MytestComponent,
     TodoAddComponent,
-    TodoRowComponent
+    TodoRowComponent,
+    TodoDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

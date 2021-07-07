@@ -7,7 +7,9 @@
             (change)="checkboxOnChange(todo)" 
             [checked]="todo.isCompleted"
         >
-        <span class="form-check-label" for="exampleCheck1">id: {{ todo.id }} {{ todo.title }}</span>
+        <span class="form-check-label" for="exampleCheck1">
+            <a href="todo-detail/{{ todo.id }}">id: {{ todo.id }} {{ todo.title }}</a>
+        </span>
     </div>
 
     <button type="button" class="btn btn-danger" (click)="onDelete(todo)">delete</button>
