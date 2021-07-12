@@ -8,7 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { TodoAddComponent } from './todo-add/todo-add.component';
 import { TodoRowComponent } from './todo-row/todo-row.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TodoDetailComponent } from './todo-detail/todo-detail.component'
+import { TodoDetailComponent } from './todo-detail/todo-detail.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { TodoItemsComponent } from './todo-items/todo-items.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TodoDetailComponent } from './todo-detail/todo-detail.component'
     MytestComponent,
     TodoAddComponent,
     TodoRowComponent,
-    TodoDetailComponent
+    TodoDetailComponent,
+    NotFoundComponent,
+    TodoItemsComponent
   ],
   imports: [
     BrowserModule,

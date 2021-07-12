@@ -1,44 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ITodos } from './itodos';
-import { TodosService } from './todos.service';
-import { TodosapiService } from './todosapi.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'angular1';
-  editTodoInfo:ITodos = {id:0,title:'',isCompleted:false};
-  todos:ITodos[] = []
-
-  constructor(private myTodoService:TodosService, private myTodosapiService:TodosapiService){}
-
-  ngOnInit(){
-    this.myTodosapiService.getAllTodos().subscribe(todos => {
-      this.todos = todos
-    })
-  }
-
-  addTodo(todo:ITodos):void{
-    if (todo.id > 0)
-    {
-      this.myTodoService.editTodo(todo)
-    } else {
-      this.myTodoService.addTodo(todo)
-    }
-  }
-
-  getTodos():ITodos[]{
-    return this.myTodoService.getAllTodos()
-  }
-
-  deleteTodo(todo:ITodos):void{
-    this.myTodoService.deleteTodo(todo)
-  }
-
-  editTodo(todo:ITodos):void{
-    this.editTodoInfo = todo
-  }
+export class AppComponent {
+  
 }
